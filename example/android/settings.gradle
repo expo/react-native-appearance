@@ -1,0 +1,5 @@
+rootProject.name = 'AppearanceExample'
+include ':app'
+
+include ':react-native-appearance'
+project(':react-native-appearance').projectDir = new File(rootProject.projectDir, '../../android')

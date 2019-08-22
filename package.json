@@ -1,0 +1,57 @@
+{
+  "name": "react-native-appearance",
+  "version": "0.2.0",
+  "description": "Polyfill for `Appearance` API which will likely be available in `react-native@>=0.61`. iOS only.",
+  "main": "src/index",
+  "module": "src/index",
+  "sideEffects": false,
+  "files": [
+    "/android",
+    "!/android/build",
+    "/ios",
+    "/src",
+    "/*.podspec"
+  ],
+  "author": "Brent Vatne <brent@expo.io>",
+  "homepage": "https://github.com/expo/react-native-appearance#readme",
+  "license": "MIT",
+  "scripts": {
+    "start": "react-native start",
+    "test": "yarn validate:prettier && yarn validate:eslint && yarn validate:typescript",
+    "validate:eslint": "eslint \"src/**/*.{js,ts,tsx}\" \"example/**/*.{js,ts,tsx}\"",
+    "validate:typescript": "tsc --project ./ --noEmit",
+    "validate:prettier": "prettier \"src/**/*.{js,ts,tsx}\" \"example/**/*.{js,ts,tsx}\" --check"
+  },
+  "keywords": [
+    "react-native",
+    "react native",
+    "react-native-web",
+    "expo-web",
+    "appearance"
+  ],
+  "peerDependencies": {
+    "react-native": ">=0.59"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@react-native-community/eslint-config": "^0.0.5",
+    "@types/react-native": "^0.60.5",
+    "@typescript-eslint/eslint-plugin": "^1.7.0",
+    "@typescript-eslint/parser": "^1.7.0",
+    "eslint": "5.16.0",
+    "eslint-config-prettier": "^4.2.0",
+    "eslint-plugin-prettier": "3.0.1",
+    "expo": "^34.0.4",
+    "metro-react-native-babel-preset": "^0.55.0",
+    "prettier": "^1.18.2",
+    "react": "^16.8.3",
+    "react-dom": "^16.9.0",
+    "react-native": "^0.60.5",
+    "react-native-web": "^0.11.7",
+    "typescript": "^3.5.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/expo/react-native-appearance.git"
+  }
+}
