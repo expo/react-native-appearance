@@ -1,4 +1,9 @@
 #import <React/RCTBridgeModule.h>
+#import <React/RCTEventEmitter.h>
 
-@interface RNCAppearance : NSObject <RCTBridgeModule>
+NSString *const RNCUserInterfaceStyleDidChangeNotification = @"RNCUserInterfaceStyleDidChangeNotification";
+
+@interface RNCAppearance : RCTEventEmitter <RCTBridgeModule>
+
+
 @end

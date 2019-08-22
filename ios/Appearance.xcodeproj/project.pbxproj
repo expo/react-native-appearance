@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		19AC186D23048EBB0093B581 /* RNCAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 19AC186C23048EBB0093B581 /* RNCAppearance.m */; };
+		BB9D66DA230F4333009ADF60 /* RNCAppearanceProviderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9D66D6230F4332009ADF60 /* RNCAppearanceProviderManager.m */; };
+		BB9D66DB230F4333009ADF60 /* RNCAppearanceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9D66D9230F4333009ADF60 /* RNCAppearanceProvider.m */; };
 		C923EDBC220C2C1A00D3100F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C923EDBB220C2C1A00D3100F /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,10 @@
 		134814201AA4EA6300B7C361 /* libRNCAppearance.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNCAppearance.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		19AC186B23048EBB0093B581 /* RNCAppearance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RNCAppearance.h; path = Appearance/RNCAppearance.h; sourceTree = "<group>"; };
 		19AC186C23048EBB0093B581 /* RNCAppearance.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RNCAppearance.m; path = Appearance/RNCAppearance.m; sourceTree = "<group>"; };
+		BB9D66D6230F4332009ADF60 /* RNCAppearanceProviderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNCAppearanceProviderManager.m; path = Appearance/RNCAppearanceProviderManager.m; sourceTree = "<group>"; };
+		BB9D66D7230F4333009ADF60 /* RNCAppearanceProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RNCAppearanceProvider.h; path = Appearance/RNCAppearanceProvider.h; sourceTree = "<group>"; };
+		BB9D66D8230F4333009ADF60 /* RNCAppearanceProviderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RNCAppearanceProviderManager.h; path = Appearance/RNCAppearanceProviderManager.h; sourceTree = "<group>"; };
+		BB9D66D9230F4333009ADF60 /* RNCAppearanceProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNCAppearanceProvider.m; path = Appearance/RNCAppearanceProvider.m; sourceTree = "<group>"; };
 		C923EDBB220C2C1A00D3100F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -55,6 +61,10 @@
 			children = (
 				19AC186B23048EBB0093B581 /* RNCAppearance.h */,
 				19AC186C23048EBB0093B581 /* RNCAppearance.m */,
+				BB9D66D7230F4333009ADF60 /* RNCAppearanceProvider.h */,
+				BB9D66D9230F4333009ADF60 /* RNCAppearanceProvider.m */,
+				BB9D66D8230F4333009ADF60 /* RNCAppearanceProviderManager.h */,
+				BB9D66D6230F4332009ADF60 /* RNCAppearanceProviderManager.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
 				C923EDBA220C2C1A00D3100F /* Frameworks */,
 			);
@@ -125,6 +135,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB9D66DA230F4333009ADF60 /* RNCAppearanceProviderManager.m in Sources */,
+				BB9D66DB230F4333009ADF60 /* RNCAppearanceProvider.m in Sources */,
 				19AC186D23048EBB0093B581 /* RNCAppearance.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

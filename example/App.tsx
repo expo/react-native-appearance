@@ -1,20 +1,25 @@
 import * as React from 'react';
-import { StyleSheet, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
-import Appearance from '..';
+import Appearance, { AppearanceProvider, useColorScheme } from '..';
 
 import { NativeModules } from 'react-native';
 
-
 function ping() {
-  Appearance.get();
+  let abc = Appearance.get('colorScheme');
+  alert(abc);
 }
 
 export default () => {
+  let colorScheme = useColorScheme();
+
   return (
-    <View style={styles.container}>
-      <Button title="Ping" onPress={ping} />
-    </View>
+    <AppearanceProvider>
+      <View style={styles.container}>
+        <Button title="Ping" onPress={ping} />
+        <Text>{colorScheme}</Text>
+      </View>
+    </AppearanceProvider>
   );
 };
 
