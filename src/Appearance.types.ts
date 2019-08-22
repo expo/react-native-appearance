@@ -1,5 +1,7 @@
-import { NativeSyntheticEvent } from 'react-native';
+export type ColorSchemeName = 'light' | 'dark' | 'no-preference';
 
-export type AppearanceChangedEvent = NativeSyntheticEvent<{  }>;
+export interface AppearancePreferences {
+  colorScheme: ColorSchemeName;
+}
 
-export type AppearanceChangeNativeCallback = (event: AppearanceChangedEvent) => void;
+export type AppearanceListener = (preferences: AppearancePreferences) => void;

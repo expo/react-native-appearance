@@ -2,11 +2,12 @@
   "name": "AppearanceExample",
   "displayName": "AppearanceExample",
   "expo": {
-    "entryPoint": "node_modules/expo/AppEntry",
+    "entryPoint": "./example/index.web.js",
+    "sdkVersion": "34.0.0",
     "name": "react-native-appearance",
     "slug": "react-native-appearance",
     "version": "0.1.0",
-    "platforms": ["android", "ios", "web"],
+    "platforms": ["web"],
     "web": {
       "display": "fullscreen",
       "barStyle": "black-translucent"

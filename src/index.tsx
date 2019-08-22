@@ -1,25 +1,27 @@
 import React, { useMemo } from 'react';
-import { NativeEventEmitter } from 'react-native';
+import { NativeModules, NativeEventEmitter, requireNativeComponent } from 'react-native';
 import { EventEmitter, EventSubscription } from 'fbemitter';
 import { useSubscription } from 'use-subscription';
+import { AppearancePreferences, ColorSchemeName, AppearanceListener } from './Appearance.types';
 import invariant from 'invariant';
 
-import NativeAppearance from './NativeAppearance';
+// Native modules
+const NativeAppearance = NativeModules.RNCAppearance;
+const NativeAppearanceProvider = requireNativeComponent('RNCAppearanceProvider');
 
-type ColorSchemeName = 'light' | 'dark' | 'no-preference';
-
-interface AppearancePreferences {
-  colorScheme: ColorSchemeName;
-}
-
-type AppearanceListener = (preferences: AppearancePreferences) => void;
-
+// Initialize the user-facing event emitter
 const eventEmitter = new EventEmitter();
 
-let appearancePreferencesInitialized = false;
-let appearancePreferences: AppearancePreferences;
+// Initialize preferences synchronously
+let appearancePreferences: AppearancePreferences = NativeAppearance.getPreferences();
 
-export default class Appearance {
+// Initialize the native event emitter
+const nativeEventEmitter = new NativeEventEmitter(NativeAppearance);
+nativeEventEmitter.addListener('appearanceChanged', (newAppearance: AppearancePreferences) => {
+  Appearance.set(newAppearance);
+});
+
+export class Appearance {
   /**
    * Note: Although appearance is available immediately, it may change (e.g
    * Dark Mode) so any rendering logic or styles that depend on this should try
@@ -32,13 +34,8 @@ export default class Appearance {
    * @param {string} preference Name of preference (e.g. 'colorScheme').
    * @returns {ColorSchemeName} Value for the preference.
    */
-  static get<P extends keyof AppearancePreferences>(
-    preference: P,
-  ): AppearancePreferences[P] {
-    invariant(
-      appearancePreferences[preference],
-      'No preference set for key ' + preference,
-    );
+  static get<P extends keyof AppearancePreferences>(preference: P): AppearancePreferences[P] {
+    invariant(appearancePreferences[preference], 'No preference set for key ' + preference);
     return appearancePreferences[preference];
   }
 
@@ -52,13 +49,7 @@ export default class Appearance {
   static set(preferences: AppearancePreferences): void {
     let { colorScheme } = preferences;
     appearancePreferences = { colorScheme };
-
-    if (appearancePreferencesInitialized) {
-      // Don't fire 'change' the first time the preferences are set.
-      eventEmitter.emit('change', preferences);
-    } else {
-      appearancePreferencesInitialized = true;
-    }
+    eventEmitter.emit('change', preferences);
   }
 
   /**
@@ -67,48 +58,26 @@ export default class Appearance {
   static addChangeListener(listener: AppearanceListener): EventSubscription {
     return eventEmitter.addListener('change', listener);
   }
-
-  /**
-   * Unused: some people might expect to remove the listener like this, but they shouldn't.
-   */
-  static removeChangeListener(_listener: AppearanceListener): void {
-    console.error(
-      'Call subscription.remove() on the subscription returned from Appearance.addChangeListener to unsubscribe from Appearance change events.',
-    );
-  }
 }
 
-// If the native appearance module is not linked then we just use no-preference
-if (NativeAppearance) {
-  const nativeEventEmitter = new NativeEventEmitter(NativeAppearance);
-  // Subscribe before calling to make sure we don't miss any updates in between.
-  nativeEventEmitter.addListener(
-    'appearanceChanged',
-    (newAppearance: AppearancePreferences) => {
-      Appearance.set(newAppearance);
-    },
-  );
-  Appearance.set(NativeAppearance.getPreferences());
-} else {
-  Appearance.set({ colorScheme: 'no-preference' });
-}
-
-import { requireNativeComponent } from 'react-native';
-const NativeAppearanceProvider = requireNativeComponent(
-  'RNCAppearanceProvider',
-);
-
+/**
+ * Temporarily require a Provider since the upstream implementation uses root view customizations
+ * to accomplish this same behavior
+ */
 export const AppearanceProvider = (props: any) => (
   <NativeAppearanceProvider style={{ flex: 1 }} {...props} />
 );
 
+/**
+ * Subscribe to color scheme updates
+ */
 export function useColorScheme(): ColorSchemeName {
   const subscription = useMemo(
     () => ({
       getCurrentValue: () => Appearance.get('colorScheme'),
       subscribe: (callback: AppearanceListener) => {
-        Appearance.addChangeListener(callback);
-        return () => Appearance.removeChangeListener(callback);
+        let eventSubscription = Appearance.addChangeListener(callback);
+        return () => eventSubscription.remove();
       },
     }),
     [],
