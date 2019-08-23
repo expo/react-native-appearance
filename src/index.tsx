@@ -48,8 +48,12 @@ export class Appearance {
    */
   static set(preferences: AppearancePreferences): void {
     let { colorScheme } = preferences;
-    appearancePreferences = { colorScheme };
-    eventEmitter.emit('change', preferences);
+
+    // Don't bother emitting if it's the same value
+    if (appearancePreferences.colorScheme !== colorScheme) {
+      appearancePreferences = { colorScheme };
+      eventEmitter.emit('change', preferences);
+    }
   }
 
   /**
