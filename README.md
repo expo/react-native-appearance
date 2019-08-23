@@ -83,3 +83,7 @@ let subscription = Appearance.addChangeListener(({ colorScheme }) => {
 // Remove the subscription at some point
 subscription.remove()
 ```
+
+## Attribution
+
+This was mostly written by Facebook for inclusion in React Native core. It is provided here as a separate module so people can opt-in to using it without updating entirely to the newest React Native version.
