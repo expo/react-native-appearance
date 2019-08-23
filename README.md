@@ -55,12 +55,13 @@ Now you can use `Appearance` and `useColorScheme` anywhere in your app.
 
 ```js
 import { Appearance, useColorScheme } from 'react-native-appearance';
-/** 
+
+/**
  * Get the current color scheme
  */
 Appearance.get('colorScheme');
 
-/** 
+/**
  * Subscribe to color scheme changes with a hook
  */
 function MyComponent() {
@@ -72,7 +73,7 @@ function MyComponent() {
   }
 }
 
-/** 
+/**
  * Subscribe to color scheme without a hook
  */
 let subscription = Appearance.addChangeListener(({ colorScheme }) => {
