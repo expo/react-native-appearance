@@ -1,1 +1,19 @@
-export * from './polyfill';
+import * as React from 'react';
+import { View } from 'react-native';
+
+let Appearance = require('react-native').Appearance;
+let AppearanceProvider = (props: any) => <View style={{flex: 1}} {...props} />;
+let useColorScheme = require('react-native').useColorScheme;
+
+if (!Appearance) {
+  let polyfill = require('./polyfill');
+  Appearance = polyfill.Appearance;
+  AppearanceProvider = polyfill.AppearanceProvider;
+  useColorScheme = polyfill.useColorScheme;
+}
+
+export {
+  Appearance,
+  AppearanceProvider,
+  useColorScheme,
+};
