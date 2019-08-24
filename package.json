@@ -1,6 +1,6 @@
 {
   "name": "react-native-appearance",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Polyfill for `Appearance` API which will likely be available in `react-native@>=0.61`. iOS only.",
   "main": "src/index",
   "module": "src/index",
