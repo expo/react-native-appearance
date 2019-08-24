@@ -42,7 +42,7 @@ pod 'react-native-appearance', :path => '../node_modules/react-native-appearance
 First, you need to wrap your app in the `AppearanceProvider`. At the root of your app, do the following:
 
 ```js
-import { AppearanceProvider} from 'react-native-appearance';
+import { AppearanceProvider } from 'react-native-appearance';
 
 export default () => (
   <AppearanceProvider>
@@ -59,7 +59,7 @@ import { Appearance, useColorScheme } from 'react-native-appearance';
 /**
  * Get the current color scheme
  */
-Appearance.get('colorScheme');
+Appearance.getColorScheme();
 
 /**
  * Subscribe to color scheme changes with a hook
