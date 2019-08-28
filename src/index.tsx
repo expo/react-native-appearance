@@ -2,7 +2,7 @@ import * as React from 'react';
 import { View } from 'react-native';
 
 let Appearance = require('react-native').Appearance;
-let AppearanceProvider = (props: any) => <View style={{flex: 1}} {...props} />;
+let AppearanceProvider = (props: any) => <View style={{ flex: 1 }} {...props} />;
 let useColorScheme = require('react-native').useColorScheme;
 
 if (!Appearance) {
@@ -12,15 +12,13 @@ if (!Appearance) {
   useColorScheme = polyfill.useColorScheme;
 }
 
-import {
-  ColorSchemeName,
-  AppearanceListener,
-  AppearancePreferences,
-} from './Appearance.types';
+import { ColorSchemeName, AppearanceListener, AppearancePreferences } from './Appearance.types';
 
 export {
-
   Appearance,
   AppearanceProvider,
   useColorScheme,
+  ColorSchemeName,
+  AppearanceListener,
+  AppearancePreferences,
 };
