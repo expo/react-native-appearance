@@ -12,7 +12,14 @@ if (!Appearance) {
   useColorScheme = polyfill.useColorScheme;
 }
 
+import {
+  ColorSchemeName,
+  AppearanceListener,
+  AppearancePreferences,
+} from './Appearance.types';
+
 export {
+
   Appearance,
   AppearanceProvider,
   useColorScheme,
