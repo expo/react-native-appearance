@@ -4,23 +4,37 @@ Polyfill for `Appearance` API to detect preferred color scheme (light/dark) in R
 
 This library is currently iOS only, and on iOS < 13 the color scheme will always be `'no-preference'`.
 
-## Getting started
+## Installation
+
+Installation instructions vary depending on whether you're using a managed Expo project or a bare React Native project.
+
+### Managed Expo project
+
+This library is supported in Expo SDK 35+.
+
+```sh
+expo install react-native-appearance
+```
+
+### Bare React Native project
 
 Install the library using either Yarn:
 
-```
+```sh
 yarn add react-native-appearance
 ```
 
 or npm:
 
-```
-npm install --save react-native-appearance
+```sh
+npm install react-native-appearance
 ```
 
-You then need to link the native parts of the library for the platforms you are using. The easiest way to link the library is using the CLI tool by running this command from the root of your project:
+## Linking
 
-```
+After installing the package you need to link the native parts of the library for the platforms you are using. The easiest way to link the library is using the CLI tool by running this command from the root of your project:
+
+```sh
 react-native link react-native-appearance
 ```
 
