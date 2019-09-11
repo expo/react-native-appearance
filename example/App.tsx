@@ -9,7 +9,7 @@ export default () => {
   return (
     <AppearanceProvider>
       <View style={styles.container}>
-        <Button title="Ping" onPress={() => alert(Appearance.get('colorScheme'))} />
+        <Button title="Ping" onPress={() => alert(Appearance.getColorScheme())} />
         <Text>{colorScheme}</Text>
       </View>
     </AppearanceProvider>

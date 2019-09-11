@@ -12,7 +12,7 @@ const NativeAppearanceProvider = requireNativeComponent('RNCAppearanceProvider')
 const eventEmitter = new EventEmitter();
 
 // Initialize preferences synchronously
-let appearancePreferences: AppearancePreferences = NativeAppearance.getPreferences();
+let appearancePreferences: AppearancePreferences = NativeAppearance.initialPreferences;
 
 // Initialize the native event emitter
 const nativeEventEmitter = new NativeEventEmitter(NativeAppearance);
@@ -66,7 +66,7 @@ export class Appearance {
  * Temporarily require a Provider since the upstream implementation uses root view customizations
  * to accomplish this same behavior
  */
-export const AppearanceProvider = (props: any) => (
+export const AppearanceProvider = (props: { children: any }) => (
   <NativeAppearanceProvider style={{ flex: 1 }} {...props} />
 );
 
