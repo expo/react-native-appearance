@@ -1,12 +1,11 @@
 import React, { useMemo } from 'react';
-import { NativeModules, NativeEventEmitter, requireNativeComponent } from 'react-native';
+import { NativeEventEmitter } from 'react-native';
 import { EventEmitter, EventSubscription } from 'fbemitter';
 import { useSubscription } from 'use-subscription';
 import { AppearancePreferences, ColorSchemeName, AppearanceListener } from './Appearance.types';
 
 // Native modules
-const NativeAppearance = NativeModules.RNCAppearance;
-const NativeAppearanceProvider = requireNativeComponent('RNCAppearanceProvider');
+import { NativeAppearance, NativeAppearanceProvider } from './NativeAppearance';
 
 // Initialize the user-facing event emitter
 const eventEmitter = new EventEmitter();

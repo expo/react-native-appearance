@@ -151,7 +151,7 @@ Appearance.getColorScheme();
  * Subscribe to color scheme changes with a hook
  */
 function MyComponent() {
-  let colorScheme = useColorScheme();
+  const colorScheme = useColorScheme();
   if (colorScheme === 'dark') {
     // render some dark thing
   } else {
@@ -162,7 +162,7 @@ function MyComponent() {
 /**
  * Subscribe to color scheme without a hook
  */
-let subscription = Appearance.addChangeListener(({ colorScheme }) => {
+const subscription = Appearance.addChangeListener(({ colorScheme }) => {
   // do something with color scheme
 });
 

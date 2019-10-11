@@ -32,7 +32,8 @@
     "appearance"
   ],
   "peerDependencies": {
-    "react-native": ">=0.59"
+    "react-native": ">=0.59",
+    "react-native-web": ">=0.11.7"
   },
   "dependencies": {
     "fbemitter": "^2.1.1",
