@@ -14,13 +14,22 @@ const eventEmitter = new EventEmitter();
 // Initialize preferences synchronously
 let appearancePreferences: AppearancePreferences = NativeAppearance.initialPreferences;
 
+let systemAppearancePreferences: AppearancePreferences = NativeAppearance.initialPreferences;
+
 // Initialize the native event emitter
 const nativeEventEmitter = new NativeEventEmitter(NativeAppearance);
 nativeEventEmitter.addListener('appearanceChanged', (newAppearance: AppearancePreferences) => {
+  systemAppearancePreferences = newAppearance;
   Appearance.set(newAppearance);
 });
 
 export class Appearance {
+  /**
+   * @returns {ColorSchemeName} The system color scheme defined in the device settings, this cannot be modified by the application code.
+   */
+  static get systemColorScheme(): ColorSchemeName {
+    return systemAppearancePreferences.colorScheme;
+  }
   /**
    * Note: Although appearance is available immediately, it may change (e.g
    * Dark Mode) so any rendering logic or styles that depend on this should try

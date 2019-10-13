@@ -9,6 +9,10 @@ interface FakeEventSubscription {
 function noop() {}
 
 export class Appearance {
+  static get systemColorScheme(): ColorSchemeName {
+    return 'no-preference';
+  }
+
   static getColorScheme(): ColorSchemeName {
     return 'no-preference';
   }
