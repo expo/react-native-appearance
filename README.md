@@ -95,7 +95,27 @@ let subscription = Appearance.addChangeListener(({ colorScheme }) => {
 });
 
 // Remove the subscription at some point
-subscription.remove()
+subscription.remove();
+```
+
+### Modifying the system color scheme
+
+The appearance API provides a method for toggling the color scheme without needing to manually go into the settings each time. This can be useful for debugging different styles quickly or creating a setting in your app that the user can toggle.
+
+> Notice: This doesn't change the system settings or persist across sessions.
+
+```js
+const colorScheme = Appearance.getColorScheme() !== 'dark' ? 'dark' : 'light';
+
+/**
+ * This will update all hooks and event listeners that are observing the color scheme.
+ */
+Appearance.set({ colorScheme });
+
+/**
+ * This will reset the style back to the device settings.
+ */
+Appearance.set({ colorScheme: Appearance.systemColorScheme });
 ```
 
 ## Attribution
