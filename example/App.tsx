@@ -8,9 +8,16 @@ export default () => {
 
   return (
     <AppearanceProvider>
-      <View style={styles.container}>
+      <View
+        style={[
+          styles.container,
+          {
+            backgroundColor: colorScheme === 'light' ? '#fff' : '#000',
+          },
+        ]}
+      >
         <Button title="Ping" onPress={() => alert(Appearance.getColorScheme())} />
-        <Text>{colorScheme}</Text>
+        <Text style={{ color: colorScheme === 'light' ? '#000' : '#fff' }}>{colorScheme}!!!</Text>
       </View>
     </AppearanceProvider>
   );

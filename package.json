@@ -5,6 +5,7 @@
   "main": "src/index",
   "module": "src/index",
   "sideEffects": false,
+  "nativePackage": true,
   "files": [
     "/android",
     "!/android/build",

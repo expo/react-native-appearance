@@ -18,16 +18,8 @@ expo install react-native-appearance
 
 ### Bare React Native project
 
-Install the library using either Yarn:
-
 ```sh
 yarn add react-native-appearance
-```
-
-or npm:
-
-```sh
-npm install react-native-appearance
 ```
 
 ## Linking
@@ -47,6 +39,86 @@ Either follow the [instructions in the React Native documentation](https://faceb
 
 ```ruby
 pod 'react-native-appearance', :path => '../node_modules/react-native-appearance'
+```
+
+</details>
+
+<details>
+<summary>Manually link the library on Android</summary>
+
+1. Open up `android/app/src/main/java/[...]/MainApplication.java`
+
+- Add `import com.reactlibrary.RNCApperancePackage;` to the imports at the top of the file
+- Add `new RNCApperancePackage()` to the list returned by the `getPackages()` method
+
+2. Append the following lines to `android/settings.gradle`:
+
+```
+include ':react-native-appearance'
+project(':react-native-appearance').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-appearance/android')
+
+```
+
+3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
+
+```
+implementation project(':react-native-appearance')
+```
+
+</details>
+
+## Configuration
+
+<details>
+<summary>iOS configuration</summary>
+
+In Expo managed projects, add `ios.userInterfaceStyle` to your `app.json`:
+
+```json
+{
+  "expo": {
+    "ios": {
+      "userInterfaceStyle": "automatic"
+    }
+  }
+}
+```
+
+In bare React Native apps, you can configure supported styles with the [UIUserInterfaceStyle](https://developer.apple.com/documentation/bundleresources/information_property_list/uiuserinterfacestyle) key in your app `Info.plist`.
+
+</details>
+
+<details>
+<summary>Android configuration</summary>
+
+Add the `uiMode` flag in `AndroidManifest.xml`:
+
+```xml
+<activity
+...
+android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode">
+```
+
+Implement the `onConfigurationChanged` method in `MainActivity.java`:
+
+```java
+import android.content.Intent; // <--- import
+import android.content.res.Configuration; // <--- import
+
+public class MainActivity extends ReactActivity {
+  ......
+
+  // copy these lines
+  @Override
+  public void onConfigurationChanged(Configuration newConfig) {
+    super.onConfigurationChanged(newConfig);
+    Intent intent = new Intent("onConfigurationChanged");
+    intent.putExtra("newConfig", newConfig);
+    sendBroadcast(intent);
+  }
+
+  ......
+}
 ```
 
 </details>

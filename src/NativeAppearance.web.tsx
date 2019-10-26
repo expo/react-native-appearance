@@ -1,2 +1,3 @@
 import * as React from 'react';
-import { ViewStyle, View } from 'react-native';
+import { View } from 'react-native';
+export default (props: any) => <View style={{ flex: 1 }} {...props} />;

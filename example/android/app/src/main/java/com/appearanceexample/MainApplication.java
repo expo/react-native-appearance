@@ -2,6 +2,7 @@ package com.appearanceexample;
 
 import android.app.Application;
 
+import com.reactlibrary.RNCApperancePackage;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -23,6 +24,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.asList(
           new MainReactPackage(),
+          new RNCApperancePackage()
       );
     }
 
