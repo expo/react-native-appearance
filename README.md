@@ -18,6 +18,8 @@ expo install react-native-appearance
 
 ### Bare React Native project
 
+> Android and web support are only available on 0.2.0-rc.0, you will need to install this verison explicitly if you would like to try them out!
+
 ```sh
 yarn add react-native-appearance
 ```
