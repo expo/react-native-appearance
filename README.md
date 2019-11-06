@@ -50,8 +50,8 @@ pod 'react-native-appearance', :path => '../node_modules/react-native-appearance
 
 1. Open up `android/app/src/main/java/[...]/MainApplication.java`
 
-- Add `import com.reactlibrary.RNCApperancePackage;` to the imports at the top of the file
-- Add `new RNCApperancePackage()` to the list returned by the `getPackages()` method
+- Add `import com.reactlibrary.RNCAppearancePackage;` to the imports at the top of the file
+- Add `new RNCAppearancePackage()` to the list returned by the `getPackages()` method
 
 2. Append the following lines to `android/settings.gradle`:
 
