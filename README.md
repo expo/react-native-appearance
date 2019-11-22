@@ -22,6 +22,8 @@ yarn add react-native-appearance
 
 ## Linking
 
+> If you are not using AndroidX on your project already (this is the default on React Native 0.60+, but not on lower versions) you will want to use the `jetifier` npm package. Install the package with `yarn add -D jetifier` and then under `scripts` add `"postinstall": "jetify -r"`. Next run `yarn jetify`.
+
 After installing the package you need to link the native parts of the library for the platforms you are using. The easiest way to link the library is using the CLI tool by running this command from the root of your project:
 
 ```sh
