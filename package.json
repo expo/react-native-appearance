@@ -2,27 +2,52 @@
   "name": "react-native-appearance",
   "version": "0.2.4",
   "description": "Polyfill for `Appearance` API which will be available in `react-native@0.62`.",
-  "main": "src/index",
-  "module": "src/index",
+  "main": "lib/commonjs/index.js",
+  "module": "lib/module/index.js",
+  "react-native": "src/index.js",
+  "types": "lib/typescript/src/index.d.ts",
   "sideEffects": false,
   "nativePackage": true,
   "files": [
+    "!/example",
+    "/lib",
+    "/src",
     "/android",
     "!/android/build",
     "/ios",
-    "/src",
     "/*.podspec"
   ],
   "author": "Brent Vatne <brent@expo.io>",
   "homepage": "https://github.com/expo/react-native-appearance#readme",
   "license": "MIT",
   "scripts": {
+    "prepare": "bob build",
     "start": "react-native start",
     "start:web": "expo start --web --config example/app.json",
     "test": "yarn validate:prettier && yarn validate:eslint && yarn validate:typescript",
     "validate:eslint": "eslint \"src/**/*.{js,ts,tsx}\" \"example/**/*.{js,ts,tsx}\"",
     "validate:typescript": "tsc --project ./ --noEmit",
     "validate:prettier": "prettier \"src/**/*.{js,ts,tsx}\" \"example/**/*.{js,ts,tsx}\" --check"
+  },
+  "jest": {
+    "preset": "react-native",
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "jest-setup.js"
+    ],
+    "modulePathIgnorePatterns": [
+      "<rootDir>/example/",
+      "<rootDir>/lib/"
+    ]
+  },
+  "@react-native-community/bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      "typescript"
+    ]
   },
   "keywords": [
     "react-native",
@@ -31,21 +56,18 @@
     "expo-web",
     "appearance"
   ],
-  "peerDependencies": {
-    "react-native": ">=0.59",
-    "react-native-web": ">=0.11.7"
-  },
   "dependencies": {
     "fbemitter": "^2.1.1",
     "invariant": "^2.2.4",
     "use-subscription": "^1.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@react-native-community/bob": "^0.7.0",
     "@react-native-community/eslint-config": "^0.0.5",
     "@types/react-native": "^0.60.5",
     "@typescript-eslint/eslint-plugin": "^1.7.0",
     "@typescript-eslint/parser": "^1.7.0",
-    "@babel/core": "^7.0.0",
     "eslint": "5.16.0",
     "eslint-config-prettier": "^4.2.0",
     "eslint-plugin-prettier": "3.0.1",
