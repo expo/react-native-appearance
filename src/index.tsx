@@ -8,7 +8,9 @@ let useColorScheme = require('react-native').useColorScheme;
 if (!Appearance) {
   let polyfill = require('./polyfill');
   Appearance = polyfill.Appearance;
-  AppearanceProvider = polyfill.AppearanceProvider;
+  AppearanceProvider = polyfill.AppearanceProvider
+    ? polyfill.AppearanceProvider
+    : AppearanceProvider;
   useColorScheme = polyfill.useColorScheme;
 }
 
