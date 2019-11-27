@@ -1,11 +1,11 @@
 {
   "name": "react-native-appearance",
-  "version": "0.2.4",
+  "version": "0.3.0-rc.1",
   "description": "Polyfill for `Appearance` API which will be available in `react-native@0.62`.",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
   "react-native": "src/index.js",
-  "types": "lib/typescript/src/index.d.ts",
+  "types": "lib/typescript/index.d.ts",
   "sideEffects": false,
   "nativePackage": true,
   "files": [
