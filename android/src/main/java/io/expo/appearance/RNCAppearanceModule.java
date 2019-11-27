@@ -1,4 +1,4 @@
-package com.reactlibrary;
+package io.expo.appearance;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;

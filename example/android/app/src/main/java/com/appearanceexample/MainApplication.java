@@ -2,7 +2,7 @@ package com.appearanceexample;
 
 import android.app.Application;
 
-import com.reactlibrary.RNCAppearancePackage;
+import io.expo.appearance.RNCAppearancePackage;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
