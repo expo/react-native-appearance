@@ -1,6 +1,6 @@
 # react-native-appearance
 
-Polyfill for `Appearance` API to detect preferred color scheme (light/dark) in React Native 0.59, 0.60, and 0.61. The `Appearance` API will likely be available in `react-native@>=0.62`.
+Access operating system appearance information on iOS, Android, and web. Currently supports detecting preferred color scheme (light/dark).
 
 ## Installation
 
@@ -13,6 +13,8 @@ This library is supported in Expo SDK 35+ (SDK 35 includes iOS support, SDK 36 a
 ```sh
 expo install react-native-appearance
 ```
+
+> Android support and web support are available on SDK36+.
 
 ### Bare React Native project
 
@@ -172,4 +174,4 @@ subscription.remove()
 
 ## Attribution
 
-This was mostly written by Facebook for inclusion in React Native core. It is provided here as a separate module so people can opt-in to using it without updating entirely to the newest React Native version.
+This was mostly written by Facebook for inclusion in React Native core.
