@@ -5,7 +5,8 @@ import { ColorSchemeName, AppearancePreferences } from './Appearance.types';
 // @ts-ignore
 import SyntheticPlatformEmitter from './web/SyntheticPlatformEmitter';
 
-const query = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+// could be used in ssr/window-less environment
+const query = (typeof window !== 'undefined' && window.matchMedia) ? window.matchMedia('(prefers-color-scheme: dark)') : null;
 
 function isMediaQueryList(query: any): query is MediaQueryList {
   return query && query.addListener && query.removeListener && typeof query.matches === 'boolean';
