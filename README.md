@@ -14,6 +14,19 @@ This library is supported in Expo SDK 35+ (SDK 35 includes iOS support, SDK 36 a
 expo install react-native-appearance
 ```
 
+Then, in **app.json**, include `"userInterfaceStyle"` to listen to the device's appearance settings:
+
+```js
+{
+  "expo": {
+    /*
+        Supported user interface styles. If left blank, "light" will be used. Use "automatic" if you would like to support either "light" or "dark" depending on device settings.
+      */
+    "userInterfaceStyle": "automatic" | "light" | "dark"
+  }
+}
+```
+
 > Android support and web support are available on SDK36+.
 
 ### Bare React Native project
@@ -169,7 +182,7 @@ const subscription = Appearance.addChangeListener(({ colorScheme }) => {
 });
 
 // Remove the subscription at some point
-subscription.remove()
+subscription.remove();
 ```
 
 ## Attribution
