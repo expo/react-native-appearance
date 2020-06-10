@@ -74,7 +74,14 @@ public class RNCAppearanceModule extends ReactContextBaseJavaModule implements L
 
     private WritableMap getPreferences() {
         WritableMap preferences = Arguments.createMap();
-        String colorScheme = getColorScheme(getReactApplicationContext().getResources().getConfiguration());
+
+        // Attempt to use the Activity context first in order to get the most up to date
+        // scheme. This covers the scenario when AppCompatDelegate.setDefaultNightMode() 
+        // is called directly (which can occur in Brownfield apps for example).
+        Activity activity = getCurrentActivity();
+        Context context = activity != null ? activity : getReactApplicationContext();
+
+        String colorScheme = getColorScheme(context.getResources().getConfiguration());
         preferences.putString("colorScheme", colorScheme);
         return preferences;
     }
