@@ -99,7 +99,7 @@ In Expo managed projects, add `ios.userInterfaceStyle` to your `app.json`:
 }
 ```
 
-In bare React Native apps, you can configure supported styles with the [UIUserInterfaceStyle](https://developer.apple.com/documentation/bundleresources/information_property_list/uiuserinterfacestyle) key in your app `Info.plist`.
+For bare React Native apps, run `npx pod-install`. You can configure supported styles with the [UIUserInterfaceStyle](https://developer.apple.com/documentation/bundleresources/information_property_list/uiuserinterfacestyle) key in your app `Info.plist`.
 
 </details>
 
