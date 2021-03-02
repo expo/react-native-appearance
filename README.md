@@ -2,6 +2,8 @@
 
 Access operating system appearance information on iOS, Android, and web. Currently supports detecting preferred color scheme (light/dark).
 
+> ⚠️ [Appearance](https://reactnative.dev/docs/appearance) in React Native core is recommended unless you have a good reason to use the library (eg: you're on an older React Native version.) This project is archived now that it will not be needed going forward.
+
 ## Installation
 
 Installation instructions vary depending on whether you're using a managed Expo project or a bare React Native project.
